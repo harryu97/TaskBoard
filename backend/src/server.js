@@ -38,7 +38,13 @@ if (process.env.NODE_ENV === "production") {
 
 }
 
+const connectPort = () => {
+  app.listen(PORT, () => {
+    console.log("Serverstarted on port 5001")
+  })
+}
 
+connectDB().then(connectPort())
 //databases should be connected first 
 connectDB().then(() => app.listen(PORT, () => {
   console.log("Server started on Port 5001");
