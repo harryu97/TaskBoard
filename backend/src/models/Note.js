@@ -12,6 +12,17 @@ const noteSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  boardId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Board",
+    required: true  //temp 
+  },
+  creator: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+    required: true
+  }
+
 },
   {
     timestamps: true //created at updated at
