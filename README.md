@@ -15,7 +15,7 @@ A collaborative note-taking and task management app built with the MERN stack, f
 
 ### Backend
 - **Express.js** - Web framework
-- **MongoDB / Mongoose** - Database and ODM
+- **MongoDB / Mongoose** - Database
 - **JWT + bcrypt** - Authentication and password hashing
 - **ws** - WebSocket server for real-time features
 - **Helmet / CORS** - Security middleware
