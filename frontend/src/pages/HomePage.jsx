@@ -4,8 +4,7 @@ import { useEffect } from "react"
 
 import { PlusIcon, UserPlus, ArrowLeft } from "lucide-react"
 import NotesNotFound from "../components/NotesNotFound.jsx"
-import axios from "axios"
-import Link from "react-router"
+
 import RateLimitedUI from "../components/RateLimitedUI.jsx"
 import NoteCard from "../components/NoteCard.jsx"
 import NoteModal from "../components/NoteModal.jsx"
@@ -13,8 +12,13 @@ import toast from "react-hot-toast"
 import api from "../lib/axios.js"
 import { useParams } from "react-router"
 import ShareBoardModal from "../components/ShareModal.jsx"
+import { useWebSocket } from "../components/useWebSockets.js"
+import { Tracker } from "../components/Tracker.jsx"
+import { Cursors } from "../components/Cursors.jsx"
 const HomePage = () => {
   const { boardId } = useParams();
+  const { send, subscribe } = useWebSocket(boardId);
+
   const [rateLimited, setIsRateLimited] = useState(false);
   const [notes, setNotes] = useState([])
 
@@ -52,7 +56,8 @@ const HomePage = () => {
       {rateLimited && <RateLimitedUI />}
       <div className="max-w-7xl mx-auto p-4 mt-6">
         {loading && <div className="text-center text-primary py-10">loading notes...</div>}
-
+        <Tracker send={send} />
+        <Cursors subscribe={subscribe} />
 
         <div className="flex justify-between items-center mb-10">
           <div>
