@@ -1,6 +1,8 @@
 # ThinkBoard
 
 A collaborative note-taking and task management app built with the MERN stack, featuring real-time cursor tracking via WebSockets.
+
+
 ![akbvby](https://github.com/user-attachments/assets/7d58e483-814e-4962-91bb-87df72f806b7)
 
 ## Features
