@@ -18,7 +18,9 @@ import jwt from "jsonwebtoken"
 //Websockt
 import http from "http"
 import { WebSocketServer } from "ws";
-dotenv.config()
+if (process.env.NODE_ENV !== "production") {
+  dotenv.config()
+}
 
 const app = express();
 const server = http.createServer(app);
